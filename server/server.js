@@ -1,6 +1,6 @@
 const express = require('express')
 const cors = require('cors')
-const {graphqlHTTP} = require('express-graphql')
+const { graphqlHTTP } = require('express-graphql')
 const mongoose = require('mongoose')
 const schema = require("./schemas/Schema.js")
 const isAuth = require('./middlewares/isAuth.js')
@@ -12,7 +12,7 @@ app.use(express.json())
 app.use(isAuth)
 dotenv.config()
 
-const mongoURL = process.env.MONGO_URL
+const mongoURL = "mongodb+srv://hmduc15:duc151202@cluster0.zng9lid.mongodb.net/?retryWrites=true&w=majority"
 mongoose.connect(mongoURL, {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -25,4 +25,4 @@ app.use("/graphql", graphqlHTTP({
 }))
 const port = process.env.PORT || 8080;
 app.listen(port, () => console.log("Sever is running..."))
-app.get('/', (req,res) => res.send("Auth system..."))
+app.get('/', (req, res) => res.send("Auth system..."))

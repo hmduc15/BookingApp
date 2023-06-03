@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { Suspense, useEffect, useState } from "react";
 import "./App.css";
 import {

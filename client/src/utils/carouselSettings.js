@@ -7,11 +7,10 @@ const arrowStyles = {
     alignItems: 'center',
     justifyContent: 'center',
     paddingTop: '2px',
-    background: '#ff6e29'
 }
 
 const SampleNextArrow = (props) => {
-    const { className, style, onClick } = props;
+    const { className, onClick } = props;
     return (
         <div
             className={className}

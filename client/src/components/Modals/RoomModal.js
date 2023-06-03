@@ -1,5 +1,5 @@
 import { useMutation } from '@apollo/client'
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { ADD_ROOM, UPDATE_ROOM } from '../../graphql/mutations/roomMutations'
 import { FormButton, Input, TextArea } from '../GlobalStyles/FormStyles'
 import { AddField, GridContainer, ModalBox, ModalContainer, ModalTitle, RoomSelectionBox } from '../GlobalStyles/ModalStyles'
@@ -10,7 +10,7 @@ import "./animation.css"
 import { GET_HOTEL } from '../../graphql/queries/hotelQueries'
 import ImageUpload from '../ImageUpload/ImageUpload'
 import AddCircleIcon from '@mui/icons-material/AddCircle';
-import { bulkImageUpload, deleteImageBulk, imageUpload } from '../../utils/utilFunctions'
+import { bulkImageUpload, deleteImageBulk } from '../../utils/utilFunctions'
 import Loader from '../Loaders/Loader'
 
 const RoomModal = (props) => {
@@ -94,21 +94,21 @@ const RoomModal = (props) => {
 
         if (selected.length > 0) {
             room.images.forEach(i => {
-                if(!selected.includes(i.uuid)){
-                    images.push({url: i.url, uuid: i.uuid})
+                if (!selected.includes(i.uuid)) {
+                    images.push({ url: i.url, uuid: i.uuid })
                 }
             })
             let delImages = []
             room.images.forEach(i => {
-                if(selected.includes(i.uuid)){
-                    delImages.push({url: i.url, uuid: i.uuid})
+                if (selected.includes(i.uuid)) {
+                    delImages.push({ url: i.url, uuid: i.uuid })
                 }
             })
             await deleteImageBulk(delImages, propsRoom.id)
         }
-        if(roomImages.length > 0){
+        if (roomImages.length > 0) {
             room.images.forEach(i => {
-                images.push({url: i.url, uuid: i.uuid})
+                images.push({ url: i.url, uuid: i.uuid })
             })
             let udImages = await bulkImageUpload(roomImages, propsRoom)
             images = images.concat(udImages)

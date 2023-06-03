@@ -1,6 +1,6 @@
 import React from 'react'
 import { FormButton, Text } from '../../components/GlobalStyles/PageStyles'
-import styled from 'styled-components'
+
 import { getAge } from '../../utils/utilFunctions'
 import { useNavigate } from 'react-router-dom'
 import { Confirmation, Layout } from './CommonStyles'

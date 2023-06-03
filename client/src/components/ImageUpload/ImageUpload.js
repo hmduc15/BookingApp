@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useRef } from 'react'
 import { FormButton, Input } from '../GlobalStyles/FormStyles'
 import styled from 'styled-components'

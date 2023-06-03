@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useQuery } from "@apollo/client";
 import React, { useContext, useEffect } from "react";
 import { useParams, useLocation } from "react-router";
@@ -10,35 +11,35 @@ import { HotelDetails, ManagerView } from "./HotelDetails";
 
 
 const Hotel = () => {
-    const {setPage} = useContext(GlobalContext)
+    const { setPage } = useContext(GlobalContext)
     const { id } = useParams();
     const location = useLocation()
     const { data, loading, error } = useQuery(GET_HOTEL_BY_ID, {
         variables: { id: id },
     });
-    
+
     useEffect(() => {
-        if(!loading && data){
+        if (!loading && data) {
             setPage(`${data.getHotelByID.name}`)
         }
-        
+
     }, [loading, data])
 
     if (loading) return <PageLoader />
     if (error) return <PageError error={error} />
-    if(!location.state) return <PageError error={{message: 'Booking info not found.'}} />
+    if (!location.state) return <PageError error={{ message: 'Booking info not found.' }} />
 
     const hotel = data.getHotelByID;
 
-    if (location.state['view']!==undefined && location.state['view'] === 'manager') return (
-        <PageContainer style={{maxWidth: "1200px", marginLeft: "auto", marginRight: "auto"}}>
-            <ManagerView params={location.state} hotel={hotel}/>
+    if (location.state['view'] !== undefined && location.state['view'] === 'manager') return (
+        <PageContainer style={{ maxWidth: "1200px", marginLeft: "auto", marginRight: "auto" }}>
+            <ManagerView params={location.state} hotel={hotel} />
         </PageContainer>
     )
 
     return (
-        <PageContainer style={{maxWidth: "1200px", marginLeft: "auto", marginRight: "auto"}}>
-            <HotelDetails hotel={hotel} params={location.state}/>
+        <PageContainer style={{ maxWidth: "1200px", marginLeft: "auto", marginRight: "auto" }}>
+            <HotelDetails hotel={hotel} params={location.state} />
         </PageContainer>
     );
 };

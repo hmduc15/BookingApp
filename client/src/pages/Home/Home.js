@@ -1,8 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect } from 'react'
 import HomeBG from "../../assets/home.jpg"
 import styled from "styled-components"
 import { GlobalContext } from '../../utils/Context'
-import { PageContainer, Text } from '../../components/GlobalStyles/PageStyles'
+import { PageContainer } from '../../components/GlobalStyles/PageStyles'
 import SearchBox from '../../components/SearchBox/SearchBox'
 import TravelImg from "../../assets/travel.png"
 

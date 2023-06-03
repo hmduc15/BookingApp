@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useContext, useState } from 'react'
 import { PageContainer } from '../../components/GlobalStyles/PageStyles'
 import BookingsList from './BookingsList'
@@ -27,7 +28,7 @@ const Bookings = (props) => {
 
     const user = JSON.parse(localStorage.getItem('user'))
 
-    const { data, loading, error } = useQuery(GET_USER_BOOKINGS,{variables: {id: user.id}})
+    const { data, loading, error } = useQuery(GET_USER_BOOKINGS, { variables: { id: user.id } })
 
     if (loading) return <PageLoader />
     if (error) return <PageError error={error} />

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect, useState } from 'react'
 import { PageContainer, Text } from '../../components/GlobalStyles/PageStyles'
 import { GlobalContext } from '../../utils/Context'
@@ -75,15 +76,15 @@ const Profile = () => {
     })
 
     useEffect(() => {
-        if(curUser.name !== user.name){
+        if (curUser.name !== user.name) {
             setShowBtn(true)
         }
-        else if(curUser.email !== user.email){
+        else if (curUser.email !== user.email) {
             setShowBtn(true)
         }
-        else if(curUser.dob !== user.dob){
+        else if (curUser.dob !== user.dob) {
             setShowBtn(true)
-        }else{
+        } else {
             setShowBtn(false)
         }
     }, [curUser])

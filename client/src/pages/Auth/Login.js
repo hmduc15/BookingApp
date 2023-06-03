@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useLazyQuery } from '@apollo/client'
 import React, { useContext, useState, useEffect } from 'react'
 import { FormButton, FormTitle, Input } from '../../components/GlobalStyles/FormStyles'

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect, useState } from 'react'
 import { useMutation } from '@apollo/client';
 import { REGISTER_USER } from '../../graphql/mutations/userMutations';

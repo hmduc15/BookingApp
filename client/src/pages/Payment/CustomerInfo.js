@@ -1,6 +1,5 @@
 import React from 'react'
 import { FormButton, Text } from '../../components/GlobalStyles/PageStyles'
-import styled from 'styled-components'
 import { getAge } from '../../utils/utilFunctions'
 import { useNavigate } from 'react-router-dom'
 import { Layout } from './CommonStyles'
@@ -27,7 +26,7 @@ const CustomerInfo = (props) => {
                         Age: <span>{getAge(user.dob)}</span>
                     </Text>
                     <Text className="small">
-                        Total: <span>{booking.people.adults+booking.people.children} Persons</span>
+                        Total: <span>{booking.people.adults + booking.people.children} Persons</span>
                     </Text>
                 </div>
                 <div className="section">
@@ -39,7 +38,7 @@ const CustomerInfo = (props) => {
                         Room: <span>{room.name}</span>
                     </Text>
                     <Text className="small" style={{ margin: '-10px 0 10px 0' }}>
-                        Room Number(s): 
+                        Room Number(s):
                         {booking.roomNumbers.map(r =>
                             (<span className="highlight" style={{ margin: '4px 2px' }}>{r}</span>)
                         )}
@@ -53,10 +52,10 @@ const CustomerInfo = (props) => {
                 </div>
             </Layout>
             <Layout className="buttons">
-                <FormButton onClick={() => navigate(`/hotel/${room.hotel.id}`, {state: booking})}>
+                <FormButton onClick={() => navigate(`/hotel/${room.hotel.id}`, { state: booking })}>
                     Go Back
                 </FormButton>
-                <FormButton onClick={() => navigate(`/payment/${room.hotel.id}/${room.id}/2`, {state: booking})}>
+                <FormButton onClick={() => navigate(`/payment/${room.hotel.id}/${room.id}/2`, { state: booking })}>
                     Confirm
                 </FormButton>
             </Layout>
